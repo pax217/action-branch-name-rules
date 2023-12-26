@@ -27,11 +27,12 @@ async function run() {
             return;
         }
 
-        const payload=core.getInput('payload');
-        core.info(`Payload: ${JSON.stringify(payload)}`);
-        github.context.payload = payload
+        //core.info(`Payload: ${JSON.stringify(payload)}`);
+        const payload = core.getInput('payload') ;
+        const jsonPayload = JSON.parse(payload);
+        core.info(`JsonPayload: ${jsonPayload}`);
 
-        const branch = getBranchName(eventName, github.context.payload);
+        const branch = getBranchName(eventName, jsonPayload);
         core.info(`Branch name: ${branch}`);
         // Check if branch is to be ignored
         const ignore = core.getInput('ignore');
