@@ -27,6 +27,9 @@ async function run() {
             return;
         }
 
+        core.info(`Payload: ${core.getInput('payload')}`);
+        return
+
         const branch = getBranchName(eventName, github.context.payload);
         core.info(`Branch name: ${branch}`);
         // Check if branch is to be ignored
