@@ -27,7 +27,8 @@ async function run() {
             return;
         }
 
-        core.info(`Payload: ${core.getInput('payload')}`);
+        const payload=core.getInput('payload');
+        core.info(`Payload: ${JSON.stringify(payload)}`);
         return
 
         const branch = getBranchName(eventName, github.context.payload);
